@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #2f4f4f;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e04e2f;
+        }
+
+        .fun-message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #4682b4;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello, World!</h1>
+    <button onclick="changeBackgroundColor()">Click me for a fun surprise!</button>
+
+    <div class="fun-message" id="message"></div>
+
+    <script>
+        function changeBackgroundColor() {
+            // Change background color randomly
+            const colors = ['#ffebcd', '#fafad2', '#f0f8ff', '#e6e6fa', '#f5f5dc'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+
+            // Display a fun message
+            const messages = [
+                "You're awesome!",
+                "Keep smiling!",
+                "JavaScript is fun!",
+                "You're a coding rockstar!",
+                "Color me happy!"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('message').innerText = randomMessage;
+        }
+    </script>
+
+</body>
+</html>

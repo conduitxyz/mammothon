@@ -2,17 +2,18 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {Html} from "../src/Html.sol";
 
 contract CounterScript is Script {
-    Counter public counter;
+    Html public html ;
 
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
-
-        counter = new Counter();
+        
+        string memory page = vm.readFile("./pages/helloworld.html");
+        html = new Html(page);
 
         vm.stopBroadcast();
     }

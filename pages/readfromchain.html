@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum RPC Call</title>
+</head>
+<body>
+    <h1>Ethereum RPC Call Example</h1>
+    <button id="getOwner">Get Owner</button>
+    <p id="result">Owner will appear here...</p>
+
+    <script>
+        document.getElementById('getOwner').onclick = async function() {
+            const url = 'http://localhost:8545'; // NOTE: update this to mammoth RPC endpoint
+            const payload = {
+                jsonrpc: '2.0',
+                method: 'eth_call',
+                // NOTE: This payload can be anything to read from chain
+                params: [
+                    {
+                        to: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9',  // some address
+                        data: '0x8da5cb5b'  // Keccak256 of owner() ABI
+                    },
+                    'latest'
+                ],
+                id: 1
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                console.log(response)
+                const data = await response.json();
+                console.log(data)
+                // Handle the result (totalSupply is in the data.result, and is in hex format)
+                if (data.result) {
+                    const owner = '0x' + data.result.slice(26);
+                    document.getElementById('result').textContent = 'Owner: ' + owner;
+                } else {
+                    document.getElementById('result').textContent = 'Error fetching data.';
+                }
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+            }
+        };  
+    </script>
+</body>
+</html>
