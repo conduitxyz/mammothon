@@ -13,7 +13,7 @@ contract Html is IHtml{
         html = _html;
     }
 
-    function GET() public view returns (string memory) {
+    function GET(string memory) public view returns (string memory) {
         return html;
     }
 
