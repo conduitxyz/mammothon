@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
+
 import "./IHtml.sol";
 
 /*
  * The simplest possible HTML contract. Anyone can update the page, with no permissions.
 */
-contract Html is IHtml{
+contract Html is IHtml {
     string private html;
 
     // roughly 640gas/character
