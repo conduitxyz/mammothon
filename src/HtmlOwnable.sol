@@ -7,7 +7,7 @@ import "../lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 /*
  * Ownable HTML page. Can be governed by a single person, Multisig, DAO, etc.
 */
-contract Html is IHtml, Ownable {
+contract HtmlOwnable is IHtml, Ownable {
     string private html;
 
     // roughly 640gas/character

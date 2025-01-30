@@ -11,9 +11,9 @@ contract CounterScript is Script {
 
     function run() public {
         vm.startBroadcast();
+        html = HtmlOwnable(vm.envAddress("HTML_ADDRESS"));
 
-        string memory page = vm.readFile("./pages/helloworld.html");
-        html = new HtmlOwnable("");
+        string memory page = vm.readFile("./pages/readfromchain.html");
         html.updateHtml(page);
 
         vm.stopBroadcast();

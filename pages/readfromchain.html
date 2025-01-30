@@ -12,14 +12,14 @@
 
     <script>
         document.getElementById('getOwner').onclick = async function() {
-            const url = 'http://localhost:8545'; // NOTE: update this to mammoth RPC endpoint
+            const url = 'https://rpc-mammothon-g2-testnet-4a2w8v0xqy.t.conduit.xyz'; // NOTE: update this to mammoth RPC endpoint
             const payload = {
                 jsonrpc: '2.0',
                 method: 'eth_call',
                 // NOTE: This payload can be anything to read from chain
                 params: [
                     {
-                        to: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9',  // some address
+                        to: '0x2Bb71AE6f5Bb52de5F535efD804e156ed2a35a8f',  // address of the HTML contract
                         data: '0x8da5cb5b'  // Keccak256 of owner() ABI
                     },
                     'latest'

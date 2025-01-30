@@ -37,6 +37,13 @@ forge script ./script/DeployHelloWorld.s.sol --rpc-url $RPC_URL --broadcast --pr
 forge script ./script/DeployChainRead.s.sol --rpc-url $RPC_URL --broadcast --private-key $PRIVATE_KEY
 ```
 
+Total gas used:
+- deployment: `701_744`
+- setting html: `1_523_345`
+total: `2_225_089`
+
+So assuming 100Mgas/sec we could do ~45 websites/sec. No backend, no cloud hosting hosts, just crypto.
+
 ## Building Further Upon this Project
 - A "browser" that will fetch data from the chain instead of from DNS. This could be set up as a mirror where you have a normal website that proxies requests to the chain and calls `GET()` on the contract requested, and forwards it.
 - A "trending" page that shows you a list of new sites created
